@@ -1,0 +1,23 @@
+
+{
+  "name": "CBSE Class 10 Study Coach",
+  "short_name": "CBSE Coach",
+  "description": "AI-powered study tracker and coach for CBSE students.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#4338ca",
+  "theme_color": "#4338ca",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3426/3426653.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3426/3426653.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

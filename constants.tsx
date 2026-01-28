@@ -1,0 +1,201 @@
+
+import { Subject, ChapterStatus, Badge } from './types';
+
+export const BADGES: Badge[] = [
+  // Mastery Badges
+  { id: 'first_step', name: 'First Step', icon: '🌱', description: 'Master your first chapter', rarity: 'Common', points: 50, unlocked: false },
+  { id: 'novice_scholar', name: 'Novice Scholar', icon: '📖', description: 'Master 5 chapters', rarity: 'Common', points: 100, unlocked: false },
+  { id: 'elite_student', name: 'Elite Student', icon: '🛡️', description: 'Master 15 chapters', rarity: 'Rare', points: 250, unlocked: false },
+  { id: 'board_ready', name: 'Board Ready', icon: '🎖️', description: 'Master 30 chapters', rarity: 'Epic', points: 500, unlocked: false },
+  { id: 'curriculum_conqueror', name: 'Curriculum Conqueror', icon: '👑', description: 'Master 60+ chapters', rarity: 'Legendary', points: 1000, unlocked: false },
+
+  // Revision Badges
+  { id: 'revision_pro', name: 'Revision Pro', icon: '🔄', description: 'Perform 10 total revisions', rarity: 'Common', points: 100, unlocked: false },
+  { id: 'revision_king', name: 'Revision King', icon: '🤴', description: 'Perform 50 total revisions', rarity: 'Rare', points: 300, unlocked: false },
+  { id: 'flawless_recall', name: 'Flawless Recall', icon: '🧠', description: 'Perform 100 total revisions', rarity: 'Epic', points: 600, unlocked: false },
+
+  // Streak/Consistency Badges
+  { id: 'streak_3', name: 'Consistent', icon: '🔥', description: '3-day streak', rarity: 'Common', points: 100, unlocked: false },
+  { id: 'streak_7', name: 'Weekly Warrior', icon: '⚔️', description: '7-day streak', rarity: 'Rare', points: 300, unlocked: false },
+  { id: 'streak_30', name: 'Academic Titan', icon: '🏛️', description: '30-day streak', rarity: 'Epic', points: 1000, unlocked: false },
+  { id: 'streak_100', name: 'Immortal Scholar', icon: '🌌', description: '100-day streak', rarity: 'Legendary', points: 5000, unlocked: false },
+
+  // XP Badges
+  { id: 'xp_1000', name: 'XP Scout', icon: '💎', description: 'Reach 1,000 Total XP', rarity: 'Common', points: 100, unlocked: false },
+  { id: 'xp_5000', name: 'XP Veteran', icon: '🔮', description: 'Reach 5,000 Total XP', rarity: 'Rare', points: 500, unlocked: false },
+  { id: 'xp_20000', name: 'XP God', icon: '☄️', description: 'Reach 20,000 Total XP', rarity: 'Legendary', points: 2000, unlocked: false },
+
+  // Habit Badges
+  { id: 'early_bird', name: 'Early Bird', icon: '☀️', description: 'Study before 7:00 AM', rarity: 'Rare', points: 200, unlocked: false },
+  { id: 'night_owl', name: 'Night Owl', icon: '🌙', description: 'Study after 10:00 PM', rarity: 'Rare', points: 200, unlocked: false },
+
+  // Subject Specific
+  { id: 'math_wizard', name: 'Math Wizard', icon: '🧙‍♂️', description: 'Master 8 Math chapters', rarity: 'Rare', points: 300, unlocked: false },
+  { id: 'science_guru', name: 'Science Guru', icon: '🧪', description: 'Master 8 Science chapters', rarity: 'Rare', points: 300, unlocked: false },
+  { id: 'social_legend', name: 'Social Legend', icon: '🏛️', description: 'Master 8 SST chapters', rarity: 'Rare', points: 300, unlocked: false },
+  { id: 'polyglot', name: 'Language Expert', icon: '🗣️', description: 'Master 5 English or Sanskrit chapters', rarity: 'Rare', points: 200, unlocked: false },
+  { id: 'all_rounder', name: 'Perfect Balance', icon: '🏆', description: 'Master at least 2 chapters in every subject', rarity: 'Epic', points: 1000, unlocked: false },
+];
+
+export const INITIAL_SUBJECTS: Subject[] = [
+  {
+    id: 'math',
+    name: 'Mathematics',
+    icon: '➗',
+    color: 'bg-blue-500',
+    chapters: [
+      { id: 'm1', title: 'Real Numbers', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0 },
+      { id: 'm2', title: 'Polynomials', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0 },
+      { id: 'm3', title: 'Pair of Linear Equations in Two Variables', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'm4', title: 'Quadratic Equations', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0 },
+      { id: 'm5', title: 'Arithmetic Progressions', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'm6', title: 'Triangles', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0 },
+      { id: 'm7', title: 'Coordinate Geometry', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0 },
+      { id: 'm8', title: 'Trigonometric Identities', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0 },
+      { id: 'm9', title: 'Heights and Distances', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0 },
+      { id: 'm10', title: 'Circles', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'm11', title: 'Constructions', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'm12', title: 'Areas Related to Circles', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0 },
+      { id: 'm13', title: 'Surface Areas and Volumes', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0 },
+      { id: 'm14', title: 'Statistics', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0 },
+      { id: 'm15', title: 'Probability', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0 },
+    ]
+  },
+  {
+    id: 'science',
+    name: 'Science',
+    icon: '🔬',
+    color: 'bg-emerald-500',
+    chapters: [
+      { id: 's1', title: 'Chemical Reactions and Equations', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Chemistry' },
+      { id: 's2', title: 'Acids, Bases and Salts', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Chemistry' },
+      { id: 's3', title: 'Metals and Non-metals', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Chemistry' },
+      { id: 's4', title: 'Carbon and its Compounds', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0, category: 'Chemistry' },
+      { id: 's5', title: 'Life Processes', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Biology' },
+      { id: 's6', title: 'Control and Coordination', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Biology' },
+      { id: 's7', title: 'How do Organisms Reproduce', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Biology' },
+      { id: 's8', title: 'Heredity and Evolution', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0, category: 'Biology' },
+      { id: 's9', title: 'Light – Reflection and Refraction', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0, category: 'Physics' },
+      { id: 's10', title: 'The Human Eye and the Colourful World', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Physics' },
+      { id: 's11', title: 'Electricity', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0, category: 'Physics' },
+      { id: 's12', title: 'Magnetic Effects of Electric Current', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0, category: 'Physics' },
+      { id: 's13', title: 'Our Environment', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Biology' },
+      { id: 's14', title: 'Sources of Energy', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Physics' },
+    ]
+  },
+  {
+    id: 'english',
+    name: 'English',
+    icon: '📘',
+    color: 'bg-indigo-500',
+    chapters: [
+      { id: 'ef1', title: 'A Letter to God', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef2', title: 'Nelson Mandela: Long Walk to Freedom', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef3', title: 'Two Stories about Flying', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef4', title: 'From the Diary of Anne Frank', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef5', title: 'The Hundred Dresses–I', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef6', title: 'The Hundred Dresses–II', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef7', title: 'Glimpses of India', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef8', title: 'Mijbil the Otter', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef9', title: 'Madam Rides the Bus', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef10', title: 'The Sermon at Benares', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ef11', title: 'The Proposal', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'First Flight' },
+      { id: 'ep1', title: 'Dust of Snow', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep2', title: 'Fire and Ice', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep3', title: 'A Tiger in the Zoo', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep4', title: 'How to Tell Wild Animals', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep5', title: 'The Ball Poem', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep6', title: 'Amanda!', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep7', title: 'Animals', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep8', title: 'The Trees', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep9', title: 'Fog', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep10', title: 'The Tale of Custard the Dragon', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ep11', title: 'For Anne Gregory', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Poetry' },
+      { id: 'ew1', title: 'A Triumph of Surgery', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew2', title: 'The Thief’s Story', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew3', title: 'The Midnight Visitor', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew4', title: 'A Question of Trust', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew5', title: 'Footprints Without Feet', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew6', title: 'The Making of a Scientist', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew7', title: 'The Necklace', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew8', title: 'The Hack Driver', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew9', title: 'Bholi', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+      { id: 'ew10', title: 'The Book That Saved the Earth', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Footprints' },
+    ]
+  },
+  {
+    id: 'sst',
+    name: 'Social Science',
+    icon: '🌍',
+    color: 'bg-orange-500',
+    chapters: [
+      { id: 'sh1', title: 'The Rise of Nationalism in Europe', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0, category: 'History' },
+      { id: 'sh2', title: 'Nationalism in India', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'History' },
+      { id: 'sh3', title: 'The Making of a Global World', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'History' },
+      { id: 'sh4', title: 'The Age of Industrialisation', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'History' },
+      { id: 'sh5', title: 'Print Culture and the Modern World', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'History' },
+      { id: 'sg1', title: 'Resources and Development', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Geography' },
+      { id: 'sg2', title: 'Forest and Wildlife Resources', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Geography' },
+      { id: 'sg3', title: 'Water Resources', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Geography' },
+      { id: 'sg4', title: 'Agriculture', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Geography' },
+      { id: 'sg5', title: 'Minerals and Energy Resources', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Geography' },
+      { id: 'sg6', title: 'Manufacturing Industries', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Geography' },
+      { id: 'sg7', title: 'Lifelines of National Economy', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Geography' },
+      { id: 'sp1', title: 'Power Sharing', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Political Science' },
+      { id: 'sp2', title: 'Federalism', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Political Science' },
+      { id: 'sp3', title: 'Gender, Religion and Caste', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Political Science' },
+      { id: 'sp4', title: 'Political Parties', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Political Science' },
+      { id: 'sp5', title: 'Outcomes of Democracy', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Political Science' },
+      { id: 'se1', title: 'Development', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Economics' },
+      { id: 'se2', title: 'Sectors of the Indian Economy', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Economics' },
+      { id: 'se3', title: 'Money and Credit', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Economics' },
+      { id: 'se4', title: 'Globalisation and the Indian Economy', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Economics' },
+      { id: 'se5', title: 'Consumer Rights', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Economics' },
+    ]
+  },
+  {
+    id: 'it',
+    name: 'Info Tech',
+    icon: '💻',
+    color: 'bg-cyan-500',
+    chapters: [
+      { id: 'it1', title: 'Communication Skills', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0, category: 'Unit 1' },
+      { id: 'it2', title: 'Self-Management Skills', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0, category: 'Unit 2' },
+      { id: 'it3', title: 'ICT Skills', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0, category: 'Unit 3' },
+      { id: 'it4', title: 'Entrepreneurial Skills', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0, category: 'Unit 4' },
+      { id: 'it5', title: 'Green Skills', status: ChapterStatus.NOT_STARTED, difficulty: 1, revisionCount: 0, timeSpent: 0, category: 'Unit 5' },
+      { id: 'it6', title: 'Digital Documentation', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0, category: 'Unit 6' },
+      { id: 'it7', title: 'Electronic Spreadsheet', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Unit 7' },
+      { id: 'it8', title: 'Database Management System', status: ChapterStatus.NOT_STARTED, difficulty: 5, revisionCount: 0, timeSpent: 0, category: 'Unit 8' },
+      { id: 'it9', title: 'Web Applications & Security', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0, category: 'Unit 9' },
+    ]
+  },
+  {
+    id: 'sanskrit',
+    name: 'Sanskrit',
+    icon: '🕉️',
+    color: 'bg-purple-500',
+    chapters: [
+      { id: 'sa1', title: 'शुचिपर्यावरणम्', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa2', title: 'बुद्धिर्बलवती सदा', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa3', title: 'जननी तुल्यवत्सला', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa4', title: 'सुभाषितानि', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa5', title: 'सौहार्दं प्रकृतेः शोभा', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa6', title: 'विचित्रः साक्षी', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa7', title: 'सूक्तयः', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa8', title: 'भूकम्पविभीषिका', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa9', title: 'नीतिनवनीतम्', status: ChapterStatus.NOT_STARTED, difficulty: 4, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa10', title: 'सन्देशः', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa11', title: 'प्राणायामः', status: ChapterStatus.NOT_STARTED, difficulty: 2, revisionCount: 0, timeSpent: 0 },
+      { id: 'sa12', title: 'पर्यावरण संरक्षणम्', status: ChapterStatus.NOT_STARTED, difficulty: 3, revisionCount: 0, timeSpent: 0 },
+    ]
+  }
+];
+
+export const MOTIVATIONAL_QUOTES = [
+  "Success is the sum of small efforts, repeated day in and day out.",
+  "Your board exams don't define your value, but your hard work defines your future.",
+  "Don't wish it were easier, wish you were better.",
+  "The expert in anything was once a beginner.",
+  "Push yourself, because no one else is going to do it for you."
+];
