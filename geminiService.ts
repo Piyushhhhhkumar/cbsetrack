@@ -1,14 +1,12 @@
 
 import { GoogleGenAI } from "@google/genai";
-import { Subject } from './types';
+import { Subject } from './types.ts';
 
-// Always use named parameter for apiKey and obtain it from process.env.API_KEY
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getCoachAdvice = async (subjects: Subject[], stats: any) => {
   const model = 'gemini-3-flash-preview';
   
-  // Prepare a brief summary of progress
   const progressSummary = subjects.map(s => {
     const total = s.chapters.length;
     const mastered = s.chapters.filter(c => c.status === 'Mastered').length;
@@ -30,7 +28,6 @@ export const getCoachAdvice = async (subjects: Subject[], stats: any) => {
   `;
 
   try {
-    // Use the correct generateContent parameters and access .text property
     const response = await ai.models.generateContent({
       model,
       contents: prompt,

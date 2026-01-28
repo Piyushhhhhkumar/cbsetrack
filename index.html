@@ -25,7 +25,6 @@
         input, select, textarea {
             user-select: text;
         }
-        /* Custom scrollbar for better aesthetics */
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
@@ -33,7 +32,6 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        /* PWA standalone mode adjustments */
         @media all and (display-mode: standalone) {
           body {
             padding-top: env(safe-area-inset-top);
@@ -53,7 +51,7 @@
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+    <script type="module" src="./index.tsx"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

@@ -1,35 +1,24 @@
 
-import { Subject, ChapterStatus, Badge } from './types';
+import { Subject, ChapterStatus, Badge } from './types.ts';
 
 export const BADGES: Badge[] = [
-  // Mastery Badges
   { id: 'first_step', name: 'First Step', icon: '🌱', description: 'Master your first chapter', rarity: 'Common', points: 50, unlocked: false },
   { id: 'novice_scholar', name: 'Novice Scholar', icon: '📖', description: 'Master 5 chapters', rarity: 'Common', points: 100, unlocked: false },
   { id: 'elite_student', name: 'Elite Student', icon: '🛡️', description: 'Master 15 chapters', rarity: 'Rare', points: 250, unlocked: false },
   { id: 'board_ready', name: 'Board Ready', icon: '🎖️', description: 'Master 30 chapters', rarity: 'Epic', points: 500, unlocked: false },
   { id: 'curriculum_conqueror', name: 'Curriculum Conqueror', icon: '👑', description: 'Master 60+ chapters', rarity: 'Legendary', points: 1000, unlocked: false },
-
-  // Revision Badges
   { id: 'revision_pro', name: 'Revision Pro', icon: '🔄', description: 'Perform 10 total revisions', rarity: 'Common', points: 100, unlocked: false },
   { id: 'revision_king', name: 'Revision King', icon: '🤴', description: 'Perform 50 total revisions', rarity: 'Rare', points: 300, unlocked: false },
   { id: 'flawless_recall', name: 'Flawless Recall', icon: '🧠', description: 'Perform 100 total revisions', rarity: 'Epic', points: 600, unlocked: false },
-
-  // Streak/Consistency Badges
   { id: 'streak_3', name: 'Consistent', icon: '🔥', description: '3-day streak', rarity: 'Common', points: 100, unlocked: false },
   { id: 'streak_7', name: 'Weekly Warrior', icon: '⚔️', description: '7-day streak', rarity: 'Rare', points: 300, unlocked: false },
   { id: 'streak_30', name: 'Academic Titan', icon: '🏛️', description: '30-day streak', rarity: 'Epic', points: 1000, unlocked: false },
   { id: 'streak_100', name: 'Immortal Scholar', icon: '🌌', description: '100-day streak', rarity: 'Legendary', points: 5000, unlocked: false },
-
-  // XP Badges
   { id: 'xp_1000', name: 'XP Scout', icon: '💎', description: 'Reach 1,000 Total XP', rarity: 'Common', points: 100, unlocked: false },
   { id: 'xp_5000', name: 'XP Veteran', icon: '🔮', description: 'Reach 5,000 Total XP', rarity: 'Rare', points: 500, unlocked: false },
   { id: 'xp_20000', name: 'XP God', icon: '☄️', description: 'Reach 20,000 Total XP', rarity: 'Legendary', points: 2000, unlocked: false },
-
-  // Habit Badges
   { id: 'early_bird', name: 'Early Bird', icon: '☀️', description: 'Study before 7:00 AM', rarity: 'Rare', points: 200, unlocked: false },
   { id: 'night_owl', name: 'Night Owl', icon: '🌙', description: 'Study after 10:00 PM', rarity: 'Rare', points: 200, unlocked: false },
-
-  // Subject Specific
   { id: 'math_wizard', name: 'Math Wizard', icon: '🧙‍♂️', description: 'Master 8 Math chapters', rarity: 'Rare', points: 300, unlocked: false },
   { id: 'science_guru', name: 'Science Guru', icon: '🧪', description: 'Master 8 Science chapters', rarity: 'Rare', points: 300, unlocked: false },
   { id: 'social_legend', name: 'Social Legend', icon: '🏛️', description: 'Master 8 SST chapters', rarity: 'Rare', points: 300, unlocked: false },

@@ -1,14 +1,14 @@
 
 const CACHE_NAME = 'cbse-coach-v1';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/index.tsx',
-  '/App.tsx',
-  '/types.ts',
-  '/constants.tsx',
-  '/geminiService.ts',
-  '/manifest.json'
+  './',
+  './index.html',
+  './index.tsx',
+  './App.tsx',
+  './types.ts',
+  './constants.tsx',
+  './geminiService.ts',
+  './manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
@@ -20,7 +20,6 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Skip cross-origin requests like Gemini API or CDNs from default cache
   if (!event.request.url.startsWith(self.location.origin)) {
     return;
   }
@@ -31,7 +30,6 @@ self.addEventListener('fetch', (event) => {
         return cachedResponse;
       }
       return fetch(event.request).then((response) => {
-        // Check if we received a valid response
         if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
