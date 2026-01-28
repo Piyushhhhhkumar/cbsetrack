@@ -38,26 +38,69 @@
           }
         }
     </style>
-<script type="importmap">
+
+    <script>
+      // Shim process to prevent ReferenceErrors in the browser
+      window.process = {
+        env: {
+          NODE_ENV: 'production',
+          API_KEY: ''
+        }
+      };
+      
+      // Global error listener to help debug initialization issues
+      window.addEventListener('error', function(e) {
+        console.error('Global Error:', e.message);
+        const root = document.getElementById('root');
+        if (root && root.innerHTML === '') {
+          root.innerHTML = '<div style="padding: 40px; text-align: center; color: #374151; font-family: system-ui; max-width: 500px; margin: 0 auto;">' +
+            '<h2 style="color: #ef4444; font-weight: 800; font-size: 1.5rem;">App Load Error</h2>' +
+            '<p style="margin-top: 12px; font-size: 0.9rem; line-height: 1.5;">The application failed to start. This usually happens if the environment cannot transpile TSX files or if a dependency is blocked.</p>' +
+            '<p style="margin-top: 8px; font-size: 0.8rem; color: #6b7280; font-family: monospace;">Reason: ' + (e.message || 'Unknown') + '</p>' +
+            '<button onclick="window.location.reload()" style="margin-top: 24px; padding: 12px 24px; background: #4338ca; color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">Refresh Page</button>' +
+            '</div>';
+        }
+      });
+    </script>
+
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
+    "@google/genai": "https://esm.sh/@google/genai@1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
 </head>
 <body>
     <div id="root"></div>
+    <!-- 
+      Note: This file is handled by Vite during the Vercel build process. 
+      The browser cannot execute .tsx directly, so the build step is essential.
+    -->
     <script type="module" src="./index.tsx"></script>
+    
     <script>
+        // Service Worker registration with origin-safety
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
+                // Registering with a relative path. 
+                // Using a simple registration instead of manually constructing URL 
+                // to avoid 'Invalid URL' errors in proxied environments.
                 navigator.serviceWorker.register('./sw.js')
-                    .then(reg => console.log('SW registered'))
-                    .catch(err => console.log('SW registration failed', err));
+                    .then(reg => console.log('SW registered successfully'))
+                    .catch(err => {
+                        // Silent info instead of error to avoid cluttering console 
+                        // in restricted preview environments.
+                        console.info('SW skipped:', err.message);
+                    });
             });
         }
     </script>

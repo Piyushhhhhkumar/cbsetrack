@@ -2,9 +2,29 @@
 import { GoogleGenAI } from "@google/genai";
 import { Subject } from './types.ts';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Defensive check for process.env
+const getApiKey = () => {
+  try {
+    return process.env.API_KEY || '';
+  } catch (e) {
+    return '';
+  }
+};
+
+const apiKey = getApiKey();
+let ai: GoogleGenAI | null = null;
+
+if (apiKey) {
+  ai = new GoogleGenAI({ apiKey });
+} else {
+  console.warn("Gemini API: No API_KEY found in process.env. AI features will be disabled.");
+}
 
 export const getCoachAdvice = async (subjects: Subject[], stats: any) => {
+  if (!ai) {
+    return "Keep pushing! Every small step counts towards your Board success. Focus on one chapter today!";
+  }
+
   const model = 'gemini-3-flash-preview';
   
   const progressSummary = subjects.map(s => {
